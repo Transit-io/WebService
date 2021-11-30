@@ -145,7 +145,7 @@ resources:
             Type: AWS::ElasticLoadBalancingV2::Listener
             Properties:
                 LoadBalancerArn: !Ref WebLoadBalancer
-                Port: 3000
+                Port: 80
                 Protocol: HTTP
                 DefaultActions:
                     - Order: 1
