@@ -109,7 +109,7 @@ resources:
             Type: AWS::ElasticLoadBalancingV2::TargetGroup
             Properties:
                 HealthCheckIntervalSeconds: 5
-                HealthCheckPath: /health
+                HealthCheckPath: /
                 HealthCheckPort: traffic-port
                 HealthCheckProtocol: HTTP
                 HealthCheckTimeoutSeconds: 4
