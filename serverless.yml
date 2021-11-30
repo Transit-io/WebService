@@ -46,7 +46,7 @@ resources:
                 LoadBalancers:
                     - TargetGroupArn: !Ref WebTargetGroup
                       ContainerName: web-container
-                      ContainerPort: 8383
+                      ContainerPort: 3000
                 PlacementStrategies:
                     - Type: binpack
                       Field: MEMORY
@@ -63,7 +63,7 @@ resources:
                       Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/web-repo:latest"
                       Name: web-container
                       PortMappings:
-                          - ContainerPort: 8383
+                          - ContainerPort: 3000
                             HostPort: 0
                             Protocol: tcp
                 Cpu: 2048
@@ -118,7 +118,7 @@ resources:
                 Matcher:
                     HttpCode: 200
                 Name: ${self:custom.prefix}-tg
-                Port: 8383
+                Port: 3000
                 Protocol: HTTP
                 TargetGroupAttributes:
                     - Key: stickiness.enabled
@@ -145,7 +145,7 @@ resources:
             Type: AWS::ElasticLoadBalancingV2::Listener
             Properties:
                 LoadBalancerArn: !Ref WebLoadBalancer
-                Port: 8383
+                Port: 3000
                 Protocol: HTTP
                 DefaultActions:
                     - Order: 1
