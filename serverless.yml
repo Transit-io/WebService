@@ -66,9 +66,9 @@ resources:
                           - ContainerPort: 3000
                             HostPort: 0
                             Protocol: tcp
-                Cpu: 2048
+                Cpu: 512
                 Family: web-task
-                Memory: 950
+                Memory: 239
                 RequiresCompatibilities:
                     - EC2
 
