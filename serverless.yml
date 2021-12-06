@@ -35,8 +35,8 @@ resources:
             Properties:
                 Cluster: ${self:custom.MediaClusterArn}
                 DeploymentConfiguration:
-                    MaximumPercent: 200
-                    MinimumHealthyPercent: 100
+                    MaximumPercent: 250
+                    MinimumHealthyPercent: 50
                     DeploymentCircuitBreaker:
                         Enable: false
                         Rollback: false
