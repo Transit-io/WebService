@@ -56,7 +56,7 @@ resources:
             Properties:
                 ContainerDefinitions:
                     - Essential: true
-                      Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/web-repo:latest"
+                      Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/web:latest"
                       LogConfiguration:
                           LogDriver: awslogs
                           Options:
