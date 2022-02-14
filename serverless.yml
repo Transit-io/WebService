@@ -182,26 +182,26 @@ resources:
                     TargetValue: 75
 
 
-# ---------- Policies/Roles ----------
-
-
-        # This is the role assummed by the Web Service
-        WebServiceRole:
-            Type: AWS::IAM::Role
-            Properties:
-                AssumeRolePolicyDocument:
-                    {
-                        "Version": "2008-10-17",
-                        "Statement": [
-                            {
-                                "Action": "sts:AssumeRole",
-                                "Effect": "Allow",
-                                "Principal": {
-                                    "Service": "ecs.amazonaws.com"
-                                }
-                            }
-                        ]
-                    }
-                ManagedPolicyArns:
-                    - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole
-                RoleName: ${self:custom.prefix}-ecs-service-role
+# # ---------- Policies/Roles ----------
+#
+#
+#         # This is the role assummed by the Web Service
+#         WebServiceRole:
+#             Type: AWS::IAM::Role
+#             Properties:
+#                 AssumeRolePolicyDocument:
+#                     {
+#                         "Version": "2008-10-17",
+#                         "Statement": [
+#                             {
+#                                 "Action": "sts:AssumeRole",
+#                                 "Effect": "Allow",
+#                                 "Principal": {
+#                                     "Service": "ecs.amazonaws.com"
+#                                 }
+#                             }
+#                         ]
+#                     }
+#                 ManagedPolicyArns:
+#                     - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole
+#                 RoleName: ${self:custom.prefix}-ecs-service-role
