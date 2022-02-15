@@ -98,7 +98,7 @@ resources:
         WebTargetGroup:
             Type: AWS::ElasticLoadBalancingV2::TargetGroup
             Properties:
-                HealthCheckIntervalSeconds: 5
+                HealthCheckIntervalSeconds: 6
                 HealthCheckPath: /health
                 HealthCheckPort: traffic-port
                 HealthCheckProtocol: HTTP
