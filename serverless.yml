@@ -20,6 +20,8 @@ custom:
     MainClusterName: clusters-${self:custom.stage}-main-cluster
     MainClusterArn:
         Fn::ImportValue: clusters-${self:custom.stage}-main-cluster-arn
+    WebSecurityGroupId:
+        Fn::ImportValue: network-${self:custom.stage}-web-security-group-id
 
 resources:
     Resources:
@@ -78,7 +80,6 @@ resources:
             Properties:
                 LogGroupName: ${self:custom.prefix}-log-group
 
-        # This load balences traffic across web task instances
         WebLoadBalancer:
             Type: AWS::ElasticLoadBalancingV2::LoadBalancer
             Properties:
@@ -93,6 +94,8 @@ resources:
                 Subnets:
                     - ${self:custom.PublicSubnetAZ0ID}
                     - ${self:custom.PublicSubnetAZ1ID}
+                SecurityGroups:
+                    - ${self:custom.WebSecurityGroupId}
                 Type: application
 
         WebTargetGroup:
