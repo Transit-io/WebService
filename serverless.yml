@@ -40,7 +40,7 @@ resources:
                         Enable: false
                         Rollback: false
                 DesiredCount: 1
-                HealthCheckGracePeriodSeconds: 5
+                HealthCheckGracePeriodSeconds: 20
                 LaunchType: EC2
                 LoadBalancers:
                     - TargetGroupArn: !Ref WebTargetGroup
@@ -71,7 +71,7 @@ resources:
                             Protocol: tcp
                 Cpu: 512
                 Family: web-task
-                Memory: 239
+                Memory: 756
                 RequiresCompatibilities:
                     - EC2
 
