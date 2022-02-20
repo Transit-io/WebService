@@ -37,6 +37,8 @@ resources:
                     DeploymentCircuitBreaker:
                         Enable: true
                         Rollback: false
+                    MaximumPercent: 200
+                    MinimumHealthyPercent: 100
                 DesiredCount: 1
                 HealthCheckGracePeriodSeconds: 20
                 LaunchType: EC2
