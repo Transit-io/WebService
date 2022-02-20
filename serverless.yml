@@ -146,7 +146,7 @@ resources:
         WebScalingTarget:
             Type: AWS::ApplicationAutoScaling::ScalableTarget
             Properties:
-                MaxCapacity: 50
+                MaxCapacity: 5
                 MinCapacity: 1
                 ResourceId: !Sub "service/${self:custom.MainClusterName}/${WebService.Name}"
                 RoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
