@@ -20,6 +20,8 @@ custom:
     MainClusterName: clusters-${self:custom.stage}-main-cluster
     MainClusterArn:
         Fn::ImportValue: clusters-${self:custom.stage}-main-cluster-arn
+    MainClusterDefaultCapacityProviderName:
+        Fn::ImportValue: clusters-${self:custom.stage}-main-cluster-default-capacity-provider-name
     WebSecurityGroupId:
         Fn::ImportValue: network-${self:custom.stage}-web-security-group-id
 
@@ -32,6 +34,10 @@ resources:
             DependsOn:
                 - WebListener
             Properties:
+                CapacityProviderStrategy:
+                    - Base: 1
+                      CapacityProvider: ${self:custom.MainClusterDefaultCapacityProviderName}
+                      Weight: 1
                 Cluster: ${self:custom.MainClusterArn}
                 DeploymentConfiguration:
                     DeploymentCircuitBreaker:
