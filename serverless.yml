@@ -34,10 +34,8 @@ resources:
             Properties:
                 Cluster: ${self:custom.MainClusterArn}
                 DeploymentConfiguration:
-                    MaximumPercent: 250
-                    MinimumHealthyPercent: 50
                     DeploymentCircuitBreaker:
-                        Enable: false
+                        Enable: true
                         Rollback: false
                 DesiredCount: 1
                 HealthCheckGracePeriodSeconds: 20
