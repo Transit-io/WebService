@@ -46,7 +46,7 @@ resources:
                     MaximumPercent: 200
                     MinimumHealthyPercent: 100
                 DesiredCount: 1
-                HealthCheckGracePeriodSeconds: 20
+                HealthCheckGracePeriodSeconds: 0
                 LoadBalancers:
                     - TargetGroupArn: !Ref WebTargetGroup
                       ContainerName: web-container
