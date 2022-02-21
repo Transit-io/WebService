@@ -47,7 +47,6 @@ resources:
                     MinimumHealthyPercent: 100
                 DesiredCount: 1
                 HealthCheckGracePeriodSeconds: 20
-                LaunchType: EC2
                 LoadBalancers:
                     - TargetGroupArn: !Ref WebTargetGroup
                       ContainerName: web-container
@@ -143,13 +142,15 @@ resources:
         WebListener:
             Type: AWS::ElasticLoadBalancingV2::Listener
             Properties:
-                LoadBalancerArn: !Ref WebLoadBalancer
-                Port: 80
-                Protocol: HTTP
+                Certificates:
+                    - CertificateArn: arn:aws:acm:us-east-1:480101464106:certificate/59275eb2-ce04-4494-ad34-5a4e9756a1b3
                 DefaultActions:
                     - Order: 1
                       TargetGroupArn: !Ref WebTargetGroup
                       Type: forward
+                LoadBalancerArn: !Ref WebLoadBalancer
+                Port: 443
+                Protocol: HTTPS
 
         WebScalingTarget:
             Type: AWS::ApplicationAutoScaling::ScalableTarget
