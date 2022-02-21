@@ -52,6 +52,8 @@ resources:
                       ContainerName: web-container
                       ContainerPort: 3000
                 PlacementStrategies:
+                    - Type: spread
+                      Field: attribute:ecs.availability-zone
                     - Type: binpack
                       Field: MEMORY
                 SchedulingStrategy: REPLICA
